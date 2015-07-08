@@ -2,29 +2,34 @@
 <html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script type="text/javascript" src="js/code.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <link rel="stylesheet" href="css/main.css"></link>
     </head>
     <body>
+    <h2>
         This is the allegory of the multi-armed bandit.
-        
+    </h2>
+    <p>    
         The one-armed bandit, as well all know, is one of those spinnymajugger machines?
         with the cherries? at las vegas?
-        
+    </p> <p>
         whatever. you know.
-        
+    </p> <p>
         so for each of those bandits, you pay to play. and sometimes you lose money, but sometimes you win it.
-        
+    </p> <p>
         some cost more, some cost less. some pay more, some less. But the catch is, it's all probabilistic
         and seeing as how it's all probabilistic, you have to figure out which lever to pull to
         maximize your payoff.
-        
+    </p> <p>
         this is intimitely related to the idea of explore vs. exploit. If you have a 
         machine you know gives small, steady payoffs, you might want to stick with it 
         to be safe, especially if you've tried some of the other machines and found
         them to have no payoff at all. but that might not be awesome. because what if 
         the machine that had a zero payoff initially ends up having a really high payoff one time out of ten?
-        
+    </p> <p>
         anyway, coming up next there is a casino with five machines, each of which
         has its own distribition of payoffs. 
+    </p>
+    <div id="slots"></div>
     </body>
 </html>

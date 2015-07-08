@@ -13,39 +13,45 @@ for (var i = 0; i < numSlotMachines; i++) {
 // Generate a slot machine div
 var slotMachineGenerator = function(i) {
   var slotContainer,
+      slotStuffContainer,
       slotImageContainer,
       slotImage,
       slotName,
       pointCountContainer,
       pointCount;
-
+  slotStuffContainer  = document.createElement("div");
   slotContainer  = document.createElement("div");
   slotImageContainer = document.createElement("div");
   slotImage = document.createElement("img");
   pointCountContainer = document.createElement("div");
   pointCount = 0;
 
-  slotContainer.classList.add("randomPizzaContainer");
-  slotContainer.style.width = (100.0 / numSlotMachines).asString() +  "%";
-  slotContainer.style.height = "325px";
-  slotContainer.id = "slot" + i;
+  slotContainer.classList.add("slotMachineContainer");
+  var width = 100.0 / numSlotMachines; 
+  slotStuffContainer.style.width = width.toString() +  "%";
+  slotStuffContainer.style.height = "325px";
+  slotStuffContainer.id = "slot" + i;
 
-  slotImage.src = "img/slots" + i.asString() + ".png";
+  slotName = document.createElement("h4");
+  slotName.innerHTML = "<br>slot machizzle " + i.toString();
+  slotContainer.appendChild(slotName);
+  
+  pointCountContainer = document.createElement("h4");
+  pointCountContainer.id = "points " + i.toString();
+  pointCountContainer.innerHTML = "points" + pointCount.toString();
+  slotContainer.appendChild(pointCountContainer);
+
+  slotImage.src = "img/slots" + i.toString() + ".png";
   slotImage.classList.add("img-responsive");
   slotImageContainer.appendChild(slotImage);
   slotContainer.appendChild(slotImageContainer);
 
-  slotName = document.createElement("h4");
-  slotName.innerHTML = "slot machizzle" + i.asString();
-  slotContainer.appendChild(slotName);
-  
-  pointCountContainer = document.createElement("h4");
-  pointCountContainer.id = "points" + i.asString();
-  pointCountContainer.innerHTML = "points" + pointCount.asString();
-  slotContainer.appendChild(pointCountContainer);
+  slotStuffContainer.classList.add("slotMachineStuffContainer");
+  slotStuffContainer.appendChild(slotContainer);
+  slotStuffContainer.pointCount = 0;
 
 
-  return slotContainer;
+  return slotStuffContainer;
 };
 
 
@@ -53,17 +59,16 @@ function addSlotMachine(i) {
   var slotMachine = slotMachineGenerator(i);
   slotMachine.addEventListener('click', (function(machineNum) {
         return function() {
-            slotMachine.points += Math.random() < payoffProbability[i] 
+            slotMachine.pointCount += Math.random() < payoffProbability[i] 
               ? payoffAmount[i]
               : 0;
-            $("#points" + i.asString).innerHTML = "points" + slotMachine.points;
+            $("#points" + i.toString())[0].innerHTML = "points " + slotMachine.pointCount;
         };
-    })(i)); 
-  
+    })(i));
+  $("#slots").append(slotMachine); 
 }
-function init() {
+
+window.onload = function() {
     for (var i = 1; i <= numSlotMachines; i++) {
         addSlotMachine(i);
-    }
-}
-init();
+    }}

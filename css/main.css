@@ -1,0 +1,11 @@
+.slotMachineContainer {
+	width: 100;
+}
+
+.slotMachineStuffContainer {
+	display: inline-flex;
+}
+
+.img-responsive {
+	width: 100%
+}

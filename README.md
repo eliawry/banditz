@@ -22,3 +22,9 @@ the machine that had a zero payoff initially ends up having a really high payoff
 
 anyway, this thing is a casino with five machines, each of which
 has its own distribition of payoffs. 
+
+and yeah, for this it's like a step distribution of 0 or a lot
+
+###future work
+
+actually have distributions, and show people what they were and how they clicked, later. that could be pretty cool.
