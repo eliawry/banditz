@@ -37,7 +37,7 @@ var slotMachineGenerator = function(i) {
   slotContainer.appendChild(slotName);
   
   pointCountContainer = document.createElement("h4");
-  pointCountContainer.id = "points " + i.toString();
+  pointCountContainer.id = "points" + i.toString();
   pointCountContainer.innerHTML = "points" + pointCount.toString();
   slotContainer.appendChild(pointCountContainer);
 
